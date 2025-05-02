@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Quiz Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 AI Quiz Generator</h1>
+    <form method="POST">
+      <label for="paragraph">Enter Paragraph:</label><br>
+      <textarea name="paragraph" required>{{ paragraph or '' }}</textarea><br>
+
+      <label for="difficulty">Select Difficulty:</label>
+      <select name="difficulty">
+        <option value="">All</option>
+        <option value="Easy" {% if difficulty == 'Easy' %}selected{% endif %}>Easy</option>
+        <option value="Medium" {% if difficulty == 'Medium' %}selected{% endif %}>Medium</option>
+        <option value="Hard" {% if difficulty == 'Hard' %}selected{% endif %}>Hard</option>
+      </select>
+
+      <button type="submit">Generate Questions</button>
+    </form>
+
+    {% if questions %}
+      <h2>📋 Generated Questions:</h2>
+      <ul>
+        {% for q in questions %}
+          <li><strong>{{ q.question }}</strong><br><em>Answer: {{ q.answer }}</em></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if quiz_df is not none and not quiz_df.empty %}
+      <h3>🧪 Generated Quiz Table:</h3>
+      <table border="1">
+        <tr>
+          <th>Question</th>
+          <th>MCQ Options</th>
+          <th>Answer</th>
+          <th>Difficulty</th>
+        </tr>
+        {% for _, row in quiz_df.iterrows() %}
+        <tr>
+          <td>{{ row["Question"] }}</td>
+          <td>
+            <ul>
+              {% for opt in row["MCQ Options"] %}
+                <li>{{ opt }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{ row["Answer"] }}</td>
+          <td>{{ row["Difficulty"] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <p><a href="/download/pdf">📥 Download PDF</a></p>
+    {% endif %}
+  </div>
+
+  <section id="features" class="features-section">
+    <div class="container">
+      <h2 class="section-title">🚀 Our Features</h2>
+      <div class="row">
+        <div class="col-md-4 feature-card">
+          <i class="fas fa-robot feature-icon"></i>
+          <h5>AI-Powered</h5>
+          <p>Leverage cutting-edge AI to generate high-quality quiz questions.</p>
+        </div>
+
+        <div class="col-md-4 feature-card">
+          <i class="fas fa-user-check feature-icon"></i>
+          <h5>User-Friendly</h5>
+          <p>Enjoy a smooth and intuitive interface that makes quiz creation easy.</p>
+        </div>
+
+        <div class="col-md-4 feature-card">
+          <i class="fas fa-lightbulb feature-icon"></i>
+          <h5>Innovative</h5>
+          <p>Unlock new ways of learning through engaging and intelligent quizzes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2025 AI Q&A Generator. All rights reserved.</p>
+    </div>
+  </footer>
+
+  {% block content %}
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+  {% endblock %}
+</body>
+</html>

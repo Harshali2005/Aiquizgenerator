@@ -1,0 +1,756 @@
+/* Import a modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Global reset and base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f2f4f8;
+  
+  color: #2d2d2d;
+  padding: 40px 20px;
+  line-height: 1.6;
+  animation: fadeInBody 1s ease-out;
+}
+
+/* Container animation */
+@keyframes slideInFromBottom {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: slideInFromBottom 1s ease-out;
+}
+
+/* Textarea styling with slide-in effect */
+@keyframes slideInFromLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+textarea {
+  width: 100%;
+  height: 160px;
+  margin-top: 15px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #dcdcdc;
+  resize: vertical;
+  transition: border 0.2s, box-shadow 0.2s;
+  animation: slideInFromLeft 1s ease-out;
+}
+
+textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Form elements (select & button) with slide-in effect */
+@keyframes slideInFromRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+select, button {
+  margin-top: 15px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  width: 100%;
+  transition: all 0.3s ease;
+  animation: slideInFromRight 1s ease-out;
+}
+
+select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Pulse animation for button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+}
+
+button {
+  background: linear-gradient(to right, #007BFF, #0056b3);
+  color: white;
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #0056b3, #003f88);
+  box-shadow: 0 6px 15px rgba(0, 86, 179, 0.25);
+  transform: scale(1.05); /* Slight scale effect */
+  animation: pulse 1s infinite; /* Pulse effect when hovered */
+}
+
+button:active {
+  transform: translateY(1px);
+  animation: none; /* Stop pulse when clicked */
+}
+
+/* Body fade-in animation */
+@keyframes fadeInBody {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* General Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
+  padding: 30px;
+  line-height: 1.6;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+td ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+td ul li {
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+td ul li::before {
+  content: "• ";
+  color: #007BFF;
+  font-size: 1.2rem;
+}
+
+p a {
+  display: inline-block;
+  margin: 10px 15px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+p a:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 8px 12px;
+  }
+
+  p a {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+#features {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+#features .col-md-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; 
+}
+
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+#features p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  #features .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  #features .col-md-4 {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+#features {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+
+/* Individual Feature Card */
+#features .col-md-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 300px; /* Ensures consistent card size */
+  width: 100%;
+}
+
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* General Styles for Features Section */
+#features {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1.5s ease-out; /* Smooth fade-in animation */
+}
+
+/* Row and Columns Layout */
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+
+/* Individual Feature Card */
+#features .col-md-4 {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 320px; 
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s; 
+}
+
+/* Feature Card Hover Effect */
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; 
+}
+
+/* Feature Title and Description */
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+#features p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Fade-In Effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide-Up Effect for Cards */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #features .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #features .col-md-4 {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+/* General Styles for Features Section */
+#features {
+  background-color: #010a13;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Row and Columns Layout */
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+
+/* Individual Feature Card */
+#features .col-md-4 {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 320px; 
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s; 
+}
+
+/* Card Hover Effect */
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; 
+}
+
+/* Feature Title and Description */
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+#features p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Fade-In Effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #features .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #features .col-md-4 {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+/* General Styles for Features Section */
+#features {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Row and Columns Layout */
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+
+/* Individual Feature Card */
+#features .col-md-4 {
+  background-color: #1a1212;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgb(255, 237, 237);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 320px; 
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s; 
+}
+
+/* Card Hover Effect */
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; 
+}
+
+/* Feature Title and Description */
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+#features p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Fade-In Effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #features .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #features .col-md-4 {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+/* General Styles for Features Section */
+#features {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+#features h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Row and Columns Layout */
+#features .row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; 
+}
+
+/* Individual Feature Card */
+#features .col-md-4 {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  max-width: 320px; 
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s; 
+}
+
+/* Card Hover Effect */
+#features .col-md-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+#features i {
+  color: #007bff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#features .col-md-4:hover i {
+  transform: scale(1.2);
+  color: #0056b3; 
+}
+
+/* Feature Title and Description */
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+#features p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+/* Fade-In Effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #features .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #features .col-md-4 {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+form {
+  z-index: 1;
+  position: relative;
+  
+  background-color:black ;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+footer {
+  background-color: #333;
+
+  color:black !important;
+  padding: 20px 0;
+  text-align: center;
+}
+.container1 p{
+   color:#007bff;
+}
